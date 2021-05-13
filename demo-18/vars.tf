@@ -1,16 +1,16 @@
-variable "AWS_REGION" {
-  default = "eu-west-1"
+variable "aws_region" {
+  default = "us-west-2"
 }
 
-variable "PATH_TO_PRIVATE_KEY" {
+variable "path_to_private_key" {
   default = "mykey"
 }
 
-variable "PATH_TO_PUBLIC_KEY" {
+variable "path_to_public_key" {
   default = "mykey.pub"
 }
 
-variable "ENV" {
+variable "env" {
   default = "prod"
 }
 

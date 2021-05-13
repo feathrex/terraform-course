@@ -19,7 +19,7 @@ resource "aws_ecs_task_definition" "demo" {
             "logDriver": "awslogs",
             "options": {
                "awslogs-group" : "demo",
-               "awslogs-region": "${var.AWS_REGION}",
+               "awslogs-region": "${var.aws_region}",
                "awslogs-stream-prefix": "ecs"
             }
      },
@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "demo" {
        "interval": 30,
        "retries": 3,
        "timeout": 5
-     }, 
+     },
      "portMappings": [
         {
            "containerPort": 3000,

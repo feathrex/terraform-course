@@ -23,7 +23,7 @@ resource "aws_codebuild_project" "demo" {
 
     environment_variable {
       name  = "AWS_DEFAULT_REGION"
-      value = var.AWS_REGION
+      value = var.aws_region
     }
     environment_variable {
       name  = "AWS_ACCOUNT_ID"

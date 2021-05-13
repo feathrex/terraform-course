@@ -1,12 +1,12 @@
-variable "AWS_REGION" {
+variable "aws_region" {
   type    = string
-  default = "eu-west-1"
+  default = "us-west-2"
 }
 
 variable "ports" {
   type = map(list(string))
   default = {
-    "22" = [ "127.0.0.1/32", "192.168.0.0/24" ]
-    "443" = [ "0.0.0.0/0" ]
+    "22"  = ["127.0.0.1/32", "192.168.0.0/24"]
+    "443" = ["0.0.0.0/0"]
   }
 }

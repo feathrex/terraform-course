@@ -1,3 +1,3 @@
-variable "AWS_REGION" {
-  default = "eu-west-1"
+variable "aws_region" {
+  default = "us-west-2"
 }

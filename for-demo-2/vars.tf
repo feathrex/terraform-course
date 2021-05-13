@@ -1,12 +1,13 @@
-variable "AWS_REGION" {
+variable "aws_region" {
   type    = string
-  default = "eu-west-1"
+  default = "us-west-2"
 }
 variable "project_tags" {
-  type          = map(string)
-  default       = {
+  type = map(string)
+  default = {
     Component   = "Frontend"
     Environment = "Production"
+    ManagedBy   = "Terraform"
   }
 }
 

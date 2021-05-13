@@ -3,7 +3,8 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+    #values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
   }
 
   filter {
@@ -19,10 +20,10 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
 
   # the VPC subnet
-  subnet_id = var.ENV == "prod" ? module.vpc-prod.public_subnets[0] : module.vpc-dev.public_subnets[0]
+  subnet_id = var.env == "prod" ? module.vpc-prod.public_subnets[0] : module.vpc-dev.public_subnets[0]
 
   # the security group
-  vpc_security_group_ids = [var.ENV == "prod" ? aws_security_group.allow-ssh-prod.id : aws_security_group.allow-ssh-dev.id]
+  vpc_security_group_ids = [var.env == "prod" ? aws_security_group.allow-ssh-prod.id : aws_security_group.allow-ssh-dev.id]
 
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
