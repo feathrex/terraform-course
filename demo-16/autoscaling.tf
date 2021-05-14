@@ -1,6 +1,6 @@
 resource "aws_launch_configuration" "example-launchconfig" {
   name_prefix     = "example-launchconfig"
-  image_id        = var.AMIS[var.AWS_REGION]
+  image_id        = var.AMIS[var.aws_region]
   instance_type   = "t2.micro"
   key_name        = aws_key_pair.mykeypair.key_name
   security_groups = [aws_security_group.myinstance.id]

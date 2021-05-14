@@ -1,9 +1,9 @@
 data "aws_ip_ranges" "european_ec2" {
-  regions  = ["eu-west-1", "eu-central-1"]
+  regions  = ["us-west-2", "us-west-11"]
   services = ["ec2"]
 }
 
-resource "aws_security_group" "from_europe" {
+resource "aws_security_group" "from_west_coast" {
   name = "from_europe"
 
   ingress {

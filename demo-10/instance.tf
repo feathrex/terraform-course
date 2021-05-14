@@ -1,5 +1,5 @@
 resource "aws_instance" "example" {
-  ami           = var.AMIS[var.AWS_REGION]
+  ami           = var.AMIS[var.aws_region]
   instance_type = "t2.micro"
 
   # the VPC subnet
@@ -16,7 +16,7 @@ resource "aws_instance" "example" {
 }
 
 resource "aws_ebs_volume" "ebs-volume-1" {
-  availability_zone = "eu-west-1a"
+  availability_zone = "us-west-2a"
   size              = 20
   type              = "gp2"
   tags = {

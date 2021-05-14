@@ -12,7 +12,7 @@ module "my-ecs" {
   ssh_sg         = aws_security_group.allow-ssh.id
   log_group      = "my-log-group"
   aws_account_id = data.aws_caller_identity.current.account_id
-  aws_region     = var.AWS_REGION
+  aws_region     = var.aws_region
 }
 
 module "my-service" {
@@ -23,7 +23,7 @@ module "my-service" {
   application_version = "latest"
   cluster_arn         = module.my-ecs.cluster_arn
   service_role_arn    = module.my-ecs.service_role_arn
-  aws_region          = var.AWS_REGION
+  aws_region          = var.aws_region
   healthcheck_matcher = "200"
   cpu_reservation     = "256"
   memory_reservation  = "128"

@@ -1,5 +1,5 @@
-variable "AWS_REGION" {
-  default = "eu-west-1"
+variable "aws_region" {
+  default = "us-west-2"
 }
 
 variable "PATH_TO_PRIVATE_KEY" {

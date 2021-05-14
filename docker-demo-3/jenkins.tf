@@ -1,6 +1,7 @@
 resource "aws_instance" "jenkins-instance" {
-  ami           = var.AMIS[var.AWS_REGION]
-  instance_type = "t2.small"
+  #ami           = var.AMIS[var.aws_region]
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
 
   # the VPC subnet
   subnet_id = aws_subnet.main-public-1.id
@@ -16,7 +17,7 @@ resource "aws_instance" "jenkins-instance" {
 }
 
 resource "aws_ebs_volume" "jenkins-data" {
-  availability_zone = "eu-west-1a"
+  availability_zone = "us-west-2a"
   size              = 20
   type              = "gp2"
   tags = {
