@@ -24,3 +24,16 @@ cd docker-demo-3/
 scripts/configure-remote-state.sh
 touch mykey mykey.pub
 terraform apply -target aws_ecs_service.myapp-service -var MYAPP_SERVICE_ENABLE="1" -var MYAPP_VERSION=${MYAPP_VERSION}
+
+
+After second job is created need to update first jenkins job and add a Post-build Action
+
+Select Trigger Paramertized build on another project
+  Projects to build: docker-demo-deploy
+  Trigger when build is: stable
+
+  Select Predefined Parameter
+  add: MYAPP_VERSION=${GIT_COMMIT}
+
+
+To kick off select docker-demo and select 'build now'
